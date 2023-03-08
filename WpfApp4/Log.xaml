@@ -9,7 +9,11 @@
         
     <Grid>
         <StackPanel>
-            <ListBox x:Name="group_ListBox" />
+            <Label Content="Фильтр"/>
+            <TextBox/>
+            <ListBox x:Name="groups"
+                     ItemsSource="{Binding Groups}"
+                     DisplayMemberPath="Name"/>
         </StackPanel>
     </Grid>
 </Window>

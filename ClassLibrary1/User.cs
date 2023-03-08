@@ -18,6 +18,7 @@ namespace ClassLibrary1
         {
             using (var db = new DBContext())
             {
+                db.Database.Delete();
                 var user = new User { Login = "Admin", PasswordHash = "Admin" };
                 db.Users.Add(user);
                 Special special = new Special { Code = "П", Name = "Программисты" };
@@ -34,6 +35,7 @@ namespace ClassLibrary1
                             StartYear = 2019 + y,
                             Special = special
                         };
+                        group.Name = group.GetCode();
                         db.Groups.Add(group);
                     }
                 }

@@ -12,7 +12,8 @@ namespace ClassLibrary1
         public Special Special { get; set; }
         public int SubGroup { get; set; }
         public int ClassRoom { get; set; }
-        public int StartYear { get; set; }
+        public int StartYear { get; set;  }
+        public string Name { get; set; }
 
         public string GetCode()
         {

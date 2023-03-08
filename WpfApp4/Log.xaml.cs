@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,12 +25,15 @@ namespace WpfApp4
         public Log()
         {
             InitializeComponent();
-            group_ListBox.ItemsSource = new List<Group>();
-            foreach(Group group in Groups)
+            using (var db = new DBContext())
             {
-                group_ListBox.Items.Add(group);
+                
+                List<Group> GroupList = db.Groups.ToList();
+                foreach(Group group in GroupList)
+                {
+                    groups.Items.Add(group);
+                }
             }
         }
-
     }
 }
